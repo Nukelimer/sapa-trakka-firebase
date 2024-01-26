@@ -1,15 +1,14 @@
 import styles from "./validation.module.css";
 import { provider, validation } from "../../config/firebase-config.js";
 import { signInWithPopup } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-
+import { Navigate, useNavigate } from "react-router-dom";
+import useGetInfo from "../../hooks/useGetInfo.js";
 export const Validate = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
- 
+  const { isLogged } = useGetInfo();
   const signInHandler = async () => {
     const results = await signInWithPopup(validation, provider);
-
     const ID = {
       userID: results.user.uid,
       profileURL: results.user.photoURL,
@@ -17,19 +16,28 @@ export const Validate = () => {
       isLogged: true,
     };
     localStorage.setItem("id", JSON.stringify(ID));
-    navigate('/expense')
-
-
+    navigate("/expense");
   };
+  if (isLogged) {
+    return <Navigate to={"/expense"} />;
+  }
+
   return (
-    <section className={styles['section-valid']}>
+    <section className={styles["section-valid"]}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-        <img src="../../../public/10002732.png" alt="login" className={styles.image} />
-        <h2>Let get you in.</h2>
-        <button className={styles.button} onClick={signInHandler}>Login with Google.</button>
-      </div>
+          <img
+            src="../../../public/10002732.png"
+            alt="login"
+            className={styles.image}
+          />
+          <h2>Let get you in.</h2>
+          <button className={styles.button} onClick={signInHandler}>
+            Login with Google.
+          </button>
+        </div>
       </div>
     </section>
   );
 };
+
