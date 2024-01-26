@@ -1,0 +1,37 @@
+.section-valid {
+  display: flex;
+  height: 100vh;
+  margin: auto;
+  width: 100%;
+  max-width: 1020px;
+}
+.container {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  max-width: 1020px;
+  background-color: white;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+.button{
+  margin-top: 1em !important;
+}
+
+h2 {
+  text-wrap: nowrap;
+  font-size: 2em !important;
+}
+
+.wrapper{
+  display: flex;
+  align-self: center;
+   height: 100vh;
+   margin: auto 0;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}

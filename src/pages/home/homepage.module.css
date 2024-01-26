@@ -1,0 +1,58 @@
+.section {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+
+}
+.container {
+  width: 80%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  box-shadow: 2px 2px 19px -2px rgba(0, 0, 0, 0.38);
+  border-radius: 4px;
+  margin-bottom: 4em ;
+}
+h2 {
+  text-align: center;
+  font-size: .8em !important;
+  text-wrap: pretty;
+  width: 100%
+
+}
+button {
+  width: 100%;
+  margin-top: 2em !important;
+
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-5%);
+  }
+  to {
+    transform: translateX(5%);
+  }
+}
+
+.slide-in-out {
+  overflow: hidden;
+border-bottom: 1px solid rgb(101, 99, 99);
+margin-bottom: 1.5em;
+}
+
+.slide-in-out {
+  animation: slideIn 1s ease-in;
+}
