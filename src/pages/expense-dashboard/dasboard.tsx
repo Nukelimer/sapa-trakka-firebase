@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useAddTransaction from "../../hooks/useAddTransaction";
 import styles from "./dashboard.module.css";
 import useGetTransactions from "../../hooks/useGetTransactions";
@@ -15,6 +15,7 @@ export const Dashboard = () => {
   const { userName, profileURL } = useGetInfo();
   const { transactions, totalAmount } = useGetTransactions();
   const navigate = useNavigate();
+  const ref = useRef<HTMLInputElement>(null);
   const { balance, bill, income } = totalAmount;
 
   const logoutHandler = async () => {
@@ -26,9 +27,9 @@ export const Dashboard = () => {
     event.preventDefault();
     addTransaction(description, amount, category);
     setDescription("");
-    setAmount(0)
-    setCategory('Income')
-    
+    if (ref.current) ref.current.value = "";
+
+    setCategory("Income");
   };
   const formatting = balance * -1;
 
@@ -84,7 +85,7 @@ export const Dashboard = () => {
                 type="number"
                 name="amount"
                 id="amount"
-       
+                ref={ref}
                 placeholder=" ₦"
                 onChange={(event) => {
                   setAmount(+event.target.value);
@@ -93,7 +94,6 @@ export const Dashboard = () => {
             </div>
             <label htmlFor="category">Choose Category:</label>
             <select
-          
               id="category"
               name="category"
               onChange={(event) => setCategory(event.target.value)}>
