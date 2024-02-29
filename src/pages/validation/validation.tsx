@@ -27,7 +27,7 @@ export const Validate = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <img
-            src="../../../public/10002732.png"
+            src="../10002732.png"
             alt="login"
             className={styles.image}
           />

@@ -48,7 +48,7 @@ export function Homepage() {
           <h2>{WittyPhrases[currentPhrase]}</h2>
         </div>
         <div className={styles.bottom}>
-          <img src="../../../public/interest-loan-calculator.svg" alt="tracker" />
+          <img src="../interest-loan-calculator.svg" alt="tracker" />
           <button onClick={navigateHandler} >Login</button>
         </div>
       </div>
