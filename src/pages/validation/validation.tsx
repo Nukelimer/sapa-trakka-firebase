@@ -23,21 +23,36 @@ export const Validate = () => {
   }
 
   return (
-    <section className={styles["section-valid"]}>
-      <div className={styles.container}>
-        <div className={styles.wrapper}>
-          <img
-            src="../10002732.png"
-            alt="login"
-            className={styles.image}
-          />
-          <h2>Let get you in.</h2>
-          <button className={styles.button} onClick={signInHandler}>
-            Login with Google.
-          </button>
-        </div>
+
+    <section className={styles.section}>
+    <div className={styles.container}>
+      <div className={styles.bottom}>
+        <img className={styles.img} src="../10002732.png"
+            alt="login" />
+          <h2 >Let get you in.</h2>
+        <button className={styles.button} onClick={signInHandler} >    Login with Google.</button>
       </div>
-    </section>
+    </div>
+  </section>
+
+
+
+
+    // <section className={styles["section-valid"]}>
+    //   <div className={styles.container}>
+    //     <div className={styles.wrapper}>
+    //       <img
+    //         src="../10002732.png"
+    //         alt="login"
+    //         className={styles.image}
+    //       />
+    //       
+    //       <button className={styles.button} onClick={signInHandler}>
+    //         Login with Google.
+    //       </button>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 

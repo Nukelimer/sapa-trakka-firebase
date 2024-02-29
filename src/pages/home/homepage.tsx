@@ -49,6 +49,8 @@ export function Homepage() {
         </div>
         <div className={styles.bottom}>
           <img src="../interest-loan-calculator.svg" alt="tracker" />
+
+          
           <button onClick={navigateHandler} >Login</button>
         </div>
       </div>
