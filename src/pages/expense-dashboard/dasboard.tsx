@@ -101,40 +101,45 @@ export const Dashboard = () => {
               <option value="Income">Income</option>
             </select>
 
+            <button>Submit</button>
+
             <div className={styles["input-incomes"]}>
               <ul>
                 <li>
-                  {transactions.map(
-                    ({ description, transactionAmount, transactionType }) => {
-                      return (
-                        <div className={styles.list} key={crypto.randomUUID()}>
-                          <h4
-                            style={{
-                              color:
-                                transactionType === "Bill"
-                                  ? "rgb(241, 10, 10)"
-                                  : "green",
-                            }}>
-                            {description}.
-                          </h4>
-                          <p
-                            style={{
-                              color:
-                                transactionType === "Bill"
-                                  ? "rgb(241, 10, 10)"
-                                  : "green",
-                            }}>
-                            ₦{transactionAmount.toLocaleString("en-UK")}
-                          </p>
-                        </div>
-                      );
-                    }
-                  )}
+                  {transactions
+                    .map(
+                      ({ description, transactionAmount, transactionType }) => {
+                        return (
+                          <div
+                            className={styles.list}
+                            key={crypto.randomUUID()}>
+                            <h4
+                              style={{
+                                color:
+                                  transactionType === "Bill"
+                                    ? "rgb(241, 10, 10)"
+                                    : "green",
+                              }}>
+                              {description}.
+                            </h4>
+
+                            <p
+                              style={{
+                                color:
+                                  transactionType === "Bill"
+                                    ? "rgb(241, 10, 10)"
+                                    : "green",
+                              }}>
+                              ₦{transactionAmount.toLocaleString("en-UK")}
+                            </p>
+                          </div>
+                        );
+                      }
+                    )
+                    .reverse()}
                 </li>
               </ul>
             </div>
-
-            <button>Submit</button>
           </form>
         </div>
       </section>
